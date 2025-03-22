@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp4.MainPage">
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Habits}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BorderColor="Green" >
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+
+                            <Image Source="{Binding Image}" HeightRequest="100" WidthRequest="100" />
+                            <StackLayout  VerticalOptions="Center">
+                                <Label Text="{Binding NameHabits}" FontSize="18" FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}" FontSize="14"/>
+                                <Label Text="{Binding Frequency}" FontSize="14"/>
+                                <Label Text="{Binding Data}" FontSize="14"/>
+                            </StackLayout>
+                            <Button Grid.Column="1" Text="Удалить" Clicked="OnDeleteClicked" CommandParameter="{Binding .}" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="DarkGreen" TextColor="White"/>
+                            <Button Grid.Column="1" Text="Добавить" Clicked="OnAddClicked" CommandParameter="{Binding .}" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="DarkGreen" TextColor="White"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+
+</ContentPage>
